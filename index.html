@@ -1,324 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CloutNepal</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-papb1eYVy2vF9kg5YcG9kxgIEQVkgmXDrB7kA9/wDj2X1JK63i18lX+4TzhSzDvaHshba2JYh7nxq5NfvbTtYw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: white;
-      overflow-x: hidden;
-    }
-    header {
-      background-color: #000;
-      padding: 2rem;
-      text-align: center;
-      animation: fadeInDown 1s ease forwards;
-    }
-    header h1 {
-      color: red;
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.3rem;
-      color: #ccc;
-      margin: 0;
-    }
+import React from "react"; import { Button } from "@/components/ui/button"; import { Card, CardContent } from "@/components/ui/card"; import { Input } from "@/components/ui/input"; import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"; import { Instagram, Youtube, Facebook, ShoppingCart, User, Send } from "lucide-react"; import { motion } from "framer-motion";
 
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    section {
-      padding: 2rem;
-      background-color: #111;
-      border-top: 2px solid #222;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.5s;
-      opacity: 0;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-    h2 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .card {
-      background-color: #222;
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px #ff0000aa;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff0000ee;
-    }
-    .social-icons {
-      margin: 1rem 0 2rem 0;
-      font-size: 2rem;
-      text-align: center;
-    }
-    .social-icons a {
-      margin: 0 15px;
-      color: white;
-      transition: color 0.3s ease;
-    }
-    .social-icons a:hover {
-      color: red;
-    }
-    .whatsapp-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      background-color: #25d366;
-      color: #000;
-      font-weight: 700;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: background-color 0.3s ease;
-    }
-    .whatsapp-btn:hover {
-      background-color: #1da851;
-    }
-    /* Pricing Table */
-    .pricing-table {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .pricing-card {
-      background: #222;
-      border-radius: 15px;
-      padding: 1.5rem 2rem;
-      width: 250px;
-      box-shadow: 0 0 10px #ff0000aa;
-      transition: transform 0.3s ease;
-    }
-    .pricing-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff0000ee;
-    }
-    .pricing-card h3 {
-      margin-top: 0;
-      color: red;
-      font-weight: 800;
-    }
-    .price {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin: 0.5rem 0 1rem 0;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      color: #ccc;
-      font-size: 0.95rem;
-    }
-    ul li {
-      padding: 0.4rem 0;
-      border-bottom: 1px solid #333;
-    }
-    /* Payment buttons */
-    .payments {
-      margin-top: 3rem;
-      text-align: center;
-    }
-    .payment-btn {
-      display: inline-block;
-      margin: 0 1rem;
-      cursor: pointer;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 10px #eee;
-      transition: transform 0.3s ease;
-      width: 120px;
-      background: #fff;
-    }
-    .payment-btn img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .payment-btn:hover {
-      transform: scale(1.1);
-    }
-    /* Embed testimonial */
-    .testimonial-section {
-      margin-top: 3rem;
-      background: #222;
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 0 15px #ff0000aa;
-    }
-    .testimonial-section h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: red;
-    }
-    .testimonial-embed {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    iframe {
-      border-radius: 15px;
-      border: none;
-      width: 300px;
-      height: 533px;
-      box-shadow: 0 0 10px #ff0000aa;
-    }
-    footer {
-      background-color: #000;
-      text-align: center;
-      padding: 1rem;
-      color: #555;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>CLOUTNEPAL</h1>
-    <p>Grow Fast. Stay Lit. Dominate Socials.</p>
-  </header>
+export default function HomePage() { return ( <div className="min-h-screen p-6 bg-gradient-to-b from-white to-gray-100"> <motion.h1 className="text-4xl font-bold text-center mb-6" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} > Boost Your Social Media Presence </motion.h1>
 
-  <section>
-    <h2>Our Services</h2>
-    <div class="card">Instagram Followers, Likes, Views</div>
-    <div class="card">Facebook Page Likes & Engagement</div>
-    <div class="card">TikTok Boost Packages</div>
+<motion.div 
+    className="flex justify-center gap-6 mb-10" 
+    initial={{ opacity: 0 }} 
+    animate={{ opacity: 1 }} 
+    transition={{ delay: 0.3 }}
+  >
+    <Instagram className="text-pink-500" size={30} />
+    <Youtube className="text-red-600" size={30} />
+    <Facebook className="text-blue-600" size={30} />
+    <img src="/tiktok-logo.png" alt="TikTok" className="w-7 h-7" />
+  </motion.div>
 
-    <div class="social-icons" aria-label="Social media links">
-      <a href="https://www.instagram.com/cloutnepal" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.tiktok.com/@cloutnepal" target="_blank" aria-label="TikTok">
-        <i class="fab fa-tiktok"></i>
-      </a>
-      <a href="https://www.facebook.com/cloutnepal" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.youtube.com/cloutnepal" target="_blank" aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
+  {/* Services Section */}
+  <motion.section className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
+    <h2 className="text-2xl font-semibold text-center mb-4">Our Services</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {['Instagram Followers', 'TikTok Views', 'YouTube Subscribers'].map((service, index) => (
+        <Card key={index} className="rounded-2xl shadow-md">
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-2">{service}</h3>
+            <p>Boost your visibility with real engagement and fast delivery.</p>
+          </CardContent>
+        </Card>
+      ))}
     </div>
+  </motion.section>
 
-    <a
-      class="whatsapp-btn"
-      href="https://wa.me/9779841290432?text=Hey%2C%20I%20want%20to%20grow%20my%20social%20media%20presence%20with%20CloutNepal!"
-      target="_blank"
-      rel="noopener"
-      >DM us on WhatsApp</a
-    >
-
-    <div class="pricing-table">
-      <div class="pricing-card">
-        <h3>Basic</h3>
-        <p class="price">₹999</p>
-        <ul>
-          <li>500 Instagram Followers</li>
-          <li>100 Likes per post</li>
-          <li>Email Support</li>
-        </ul>
-      </div>
-      <div class="pricing-card">
-        <h3>Pro</h3>
-        <p class="price">₹1999</p>
-        <ul>
-          <li>1500 Instagram Followers</li>
-          <li>500 Likes & Comments</li>
-          <li>Priority Support</li>
-        </ul>
-      </div>
-      <div class="pricing-card">
-        <h3>Elite</h3>
-        <p class="price">₹3499</p>
-        <ul>
-          <li>5000 Followers (Multi-platform)</li>
-          <li>Full Engagement Package</li>
-          <li>24/7 VIP Support</li>
-        </ul>
-      </div>
+  {/* Pricing Table */}
+  <motion.section className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
+    <h2 className="text-2xl font-semibold text-center mb-4">Pricing</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <Card className="rounded-2xl shadow-md">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-bold mb-2">Instagram Followers</h3>
+          <p className="mb-2">1000 followers - Rs. 500</p>
+          <Button variant="default">Order Now</Button>
+        </CardContent>
+      </Card>
+      <Card className="rounded-2xl shadow-md">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-bold mb-2">TikTok Likes</h3>
+          <p className="mb-2">1000 likes - Rs. 400</p>
+          <Button variant="default">Order Now</Button>
+        </CardContent>
+      </Card>
+      <Card className="rounded-2xl shadow-md">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-bold mb-2">YouTube Views</h3>
+          <p className="mb-2">1000 views - Rs. 700</p>
+          <Button variant="default">Order Now</Button>
+        </CardContent>
+      </Card>
     </div>
+  </motion.section>
 
-    <div class="payments" aria-label="Payment options">
-      <a
-        class="payment-btn"
-        href="https://esewa.com.np/#/home"
-        target="_blank"
-        rel="noopener"
-        title="Pay with eSewa"
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/66/Esewa_logo.png"
-          alt="eSewa logo"
-        />
-      </a>
-      <!-- You can add other payment logos like Khalti here -->
+  {/* Order Section */}
+  <motion.section className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
+    <h2 className="text-2xl font-semibold text-center mb-4">Place an Order</h2>
+    <div className="max-w-md mx-auto">
+      <Input className="mb-2" placeholder="Enter your username or profile link" />
+      <Input className="mb-2" placeholder="Select service (e.g., Instagram Followers)" />
+      <Input className="mb-2" placeholder="Quantity (e.g., 1000)" />
+      <Input className="mb-4" placeholder="Your eSewa ID or WhatsApp Number" />
+      <Button className="w-full bg-green-500 hover:bg-green-600">Pay with eSewa</Button>
     </div>
+  </motion.section>
 
-    <div class="testimonial-section" aria-label="Customer testimonials">
-      <h2>What Our Clients Say</h2>
-      <div class="testimonial-embed">
-        <!-- TikTok Embed -->
-        <iframe
-          src="https://www.tiktok.com/embed/v2/7158696211341043713"
-          allowfullscreen
-          scrolling="no"
-          frameborder="0"
-          title="TikTok Testimonial"
-        ></iframe>
-
-        <!-- Instagram Embed -->
-        <iframe
-          src="https://www.instagram.com/p/CnK5NnXJD12/embed"
-          allowfullscreen
-          scrolling="no"
-          frameborder="0"
-          title="Instagram Testimonial"
-        ></iframe>
-      </div>
+  {/* Testimonials */}
+  <motion.section className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
+    <h2 className="text-2xl font-semibold text-center mb-4">Client Testimonials</h2>
+    <div className="flex justify-center">
+      <iframe
+        src="https://www.instagram.com/p/EXAMPLE/embed"
+        width="400"
+        height="480"
+        frameBorder="0"
+        allowTransparency={true}
+        allow="encrypted-media"
+      ></iframe>
     </div>
-  </section>
+  </motion.section>
 
-  <footer>&copy; 2025 CloutNepal. All rights reserved.</footer>
-</body>
-</html>
+  {/* Login Section */}
+  <motion.section className="mb-12 max-w-sm mx-auto" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
+    <h2 className="text-2xl font-semibold text-center mb-4">Login</h2>
+    <Input className="mb-2" placeholder="Email" type="email" />
+    <Input className="mb-4" placeholder="Password" type="password" />
+    <Button className="w-full">Login</Button>
+  </motion.section>
+
+  {/* Support & Contact */}
+  <motion.section className="text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}>
+    <p className="mb-4">Need help? DM us on WhatsApp for 24/7 support!</p>
+    <a href="https://wa.me/9779812345678" target="_blank" rel="noopener noreferrer">
+      <Button variant="outline" className="flex items-center gap-2">
+        <Send size={18} /> Chat on WhatsApp
+      </Button>
+    </a>
+  </motion.section>
+</div>
+
+); }
