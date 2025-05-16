@@ -1,63 +1,218 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CloutNepal - Grow Fast. Stay Lit.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CloutNepal</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-papb1eYVy2vF9kg5YcG9kxgIEQVkgmXDrB7kA9/wDj2X1JK63i18lX+4TzhSzDvaHshba2JYh7nxq5NfvbTtYw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     body {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600; /* or 700/800 for more bold */
-}
-h1, h2, h3, .bold-text {
-  font-weight: 800;
-}
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: white;
+      overflow-x: hidden;
+    }
     header {
-      background: #111;
-      padding: 40px 20px;
+      background-color: #000;
+      padding: 2rem;
       text-align: center;
+      animation: fadeInDown 1s ease forwards;
     }
     header h1 {
-      font-size: 48px;
-      color: #ff3131;
+      color: red;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
     }
     header p {
-      font-size: 20px;
-      color: #aaa;
+      font-size: 1.3rem;
+      color: #ccc;
+      margin: 0;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
+      padding: 2rem;
+      background-color: #111;
+      border-top: 2px solid #222;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
     }
-    .services, .why, .testimonials {
-      margin-top: 40px;
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
     }
-    .service-box {
-      background: #1a1a1a;
-      border: 1px solid #333;
+    h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .card {
+      background-color: #222;
+      padding: 1.5rem;
       border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px #ff0000aa;
+      transition: transform 0.3s ease;
     }
-    a.button {
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff0000ee;
+    }
+    .social-icons {
+      margin: 1rem 0 2rem 0;
+      font-size: 2rem;
+      text-align: center;
+    }
+    .social-icons a {
+      margin: 0 15px;
+      color: white;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: red;
+    }
+    .whatsapp-btn {
       display: inline-block;
-      margin-top: 20px;
-      background: #ff3131;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 30px;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #25d366;
+      color: #000;
+      font-weight: 700;
+      border-radius: 10px;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1da851;
+    }
+    /* Pricing Table */
+    .pricing-table {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .pricing-card {
+      background: #222;
+      border-radius: 15px;
+      padding: 1.5rem 2rem;
+      width: 250px;
+      box-shadow: 0 0 10px #ff0000aa;
+      transition: transform 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff0000ee;
+    }
+    .pricing-card h3 {
+      margin-top: 0;
+      color: red;
+      font-weight: 800;
+    }
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 0.5rem 0 1rem 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+    ul li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #333;
+    }
+    /* Payment buttons */
+    .payments {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .payment-btn {
+      display: inline-block;
+      margin: 0 1rem;
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #eee;
+      transition: transform 0.3s ease;
+      width: 120px;
+      background: #fff;
+    }
+    .payment-btn img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .payment-btn:hover {
+      transform: scale(1.1);
+    }
+    /* Embed testimonial */
+    .testimonial-section {
+      margin-top: 3rem;
+      background: #222;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 15px #ff0000aa;
+    }
+    .testimonial-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: red;
+    }
+    .testimonial-embed {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    iframe {
+      border-radius: 15px;
+      border: none;
+      width: 300px;
+      height: 533px;
+      box-shadow: 0 0 10px #ff0000aa;
     }
     footer {
+      background-color: #000;
       text-align: center;
-      padding: 20px;
-      background: #111;
-      font-size: 14px;
-      color: #777;
+      padding: 1rem;
+      color: #555;
+      margin-top: 3rem;
+      font-size: 0.9rem;
     }
-    </style>
+  </style>
 </head>
 <body>
   <header>
@@ -65,53 +220,105 @@ h1, h2, h3, .bold-text {
     <p>Grow Fast. Stay Lit. Dominate Socials.</p>
   </header>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-box">
-      <h3>Instagram Growth</h3>
-      <p>Real-looking followers, likes & views delivered instantly.</p>
-      <p><strong>From Rs. 50 per package</strong></p>
-    </div>
-    <div class="service-box">
-      <h3>TikTok Boost</h3>
-      <p>Get viral fast with views, hearts, and followers.</p>
-      <p><strong>Starts at Rs. 30</strong></p>
-    </div>
-    <div class="service-box">
-      <h3>YouTube Views & Subs</h3>
-      <p>Perfect for creators grinding daily. Grow your presence.</p>
-      <p><strong>Starts at Rs. 100</strong></p>
-    </div>
-    <a href="https://wa.me/9779841290432" class="button" target="_blank">Order on WhatsApp</a>
-  </section>
-  <section class="why">
-    <h2>Why CloutNepal?</h2>
-    <ul>
-      <li>Instant delivery</li>
-      <li>Trusted by 100+ Nepali creators</li>
-      <li>Zero fake vibes — all clean & undetectable</li>
-      <li>24/7 support via IG/WhatsApp</li>
-    </ul>
-  </section>
-
-  <section class="testimonials">
-    <h2>What People Say</h2>
-    <div class="service-box">
-      <p>"Got 5k TikTok views in 2 minutes. This is insane. Love from Pokhara." – @realbibek</p>
-    </div>
-    <div class="service-box">
-      <p>"My IG blew up overnight. Thanks CloutNepal bro!" – @kathamandugirlx</p>
-    </div>
-  </section>
-
   <section>
-    <h2>Let’s Build Your Clout</h2>
-    <p>Click below and DM us. It’s your time to grow smart.</p>
-    <a href="https://instagram.com/cloutnepal" class="button" target="_blank">DM on Instagram</a>
+    <h2>Our Services</h2>
+    <div class="card">Instagram Followers, Likes, Views</div>
+    <div class="card">Facebook Page Likes & Engagement</div>
+    <div class="card">TikTok Boost Packages</div>
+
+    <div class="social-icons" aria-label="Social media links">
+      <a href="https://www.instagram.com/cloutnepal" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@cloutnepal" target="_blank" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://www.facebook.com/cloutnepal" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.youtube.com/cloutnepal" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+
+    <a
+      class="whatsapp-btn"
+      href="https://wa.me/9779841290432?text=Hey%2C%20I%20want%20to%20grow%20my%20social%20media%20presence%20with%20CloutNepal!"
+      target="_blank"
+      rel="noopener"
+      >DM us on WhatsApp</a
+    >
+
+    <div class="pricing-table">
+      <div class="pricing-card">
+        <h3>Basic</h3>
+        <p class="price">₹999</p>
+        <ul>
+          <li>500 Instagram Followers</li>
+          <li>100 Likes per post</li>
+          <li>Email Support</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h3>Pro</h3>
+        <p class="price">₹1999</p>
+        <ul>
+          <li>1500 Instagram Followers</li>
+          <li>500 Likes & Comments</li>
+          <li>Priority Support</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h3>Elite</h3>
+        <p class="price">₹3499</p>
+        <ul>
+          <li>5000 Followers (Multi-platform)</li>
+          <li>Full Engagement Package</li>
+          <li>24/7 VIP Support</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="payments" aria-label="Payment options">
+      <a
+        class="payment-btn"
+        href="https://esewa.com.np/#/home"
+        target="_blank"
+        rel="noopener"
+        title="Pay with eSewa"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/66/Esewa_logo.png"
+          alt="eSewa logo"
+        />
+      </a>
+      <!-- You can add other payment logos like Khalti here -->
+    </div>
+
+    <div class="testimonial-section" aria-label="Customer testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-embed">
+        <!-- TikTok Embed -->
+        <iframe
+          src="https://www.tiktok.com/embed/v2/7158696211341043713"
+          allowfullscreen
+          scrolling="no"
+          frameborder="0"
+          title="TikTok Testimonial"
+        ></iframe>
+
+        <!-- Instagram Embed -->
+        <iframe
+          src="https://www.instagram.com/p/CnK5NnXJD12/embed"
+          allowfullscreen
+          scrolling="no"
+          frameborder="0"
+          title="Instagram Testimonial"
+        ></iframe>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    &copy; 2025 CloutNepal. Hustle Smart.
-  </footer>
+  <footer>&copy; 2025 CloutNepal. All rights reserved.</footer>
 </body>
 </html>
