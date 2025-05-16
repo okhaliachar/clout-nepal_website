@@ -1,106 +1,157 @@
-import React from "react"; import { Button } from "@/components/ui/button"; import { Card, CardContent } from "@/components/ui/card"; import { Input } from "@/components/ui/input"; import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"; import { Instagram, Youtube, Facebook, ShoppingCart, User, Send } from "lucide-react"; import { motion } from "framer-motion";
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloutNepal - SMM Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  background-color: #000;
+  color: #fff;
+}
 
-export default function HomePage() { return ( <div className="min-h-screen p-6 bg-gradient-to-b from-white to-gray-100"> <motion.h1 className="text-4xl font-bold text-center mb-6" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} > Boost Your Social Media Presence </motion.h1>
+header {
+  padding: 2rem;
+  text-align: center;
+  background-color: #111;
+}
 
-<motion.div 
-    className="flex justify-center gap-6 mb-10" 
-    initial={{ opacity: 0 }} 
-    animate={{ opacity: 1 }} 
-    transition={{ delay: 0.3 }}
-  >
-    <Instagram className="text-pink-500" size={30} />
-    <Youtube className="text-red-600" size={30} />
-    <Facebook className="text-blue-600" size={30} />
-    <img src="/tiktok-logo.png" alt="TikTok" className="w-7 h-7" />
-  </motion.div>
+h1 {
+  font-size: 3rem;
+  color: #e50914;
+  font-weight: 700;
+}
 
-  {/* Services Section */}
-  <motion.section className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
-    <h2 className="text-2xl font-semibold text-center mb-4">Our Services</h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {['Instagram Followers', 'TikTok Views', 'YouTube Subscribers'].map((service, index) => (
-        <Card key={index} className="rounded-2xl shadow-md">
-          <CardContent className="p-4">
-            <h3 className="text-xl font-bold mb-2">{service}</h3>
-            <p>Boost your visibility with real engagement and fast delivery.</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </motion.section>
+p.tagline {
+  color: #aaa;
+  margin-top: 0.5rem;
+}
 
-  {/* Pricing Table */}
-  <motion.section className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-    <h2 className="text-2xl font-semibold text-center mb-4">Pricing</h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-      <Card className="rounded-2xl shadow-md">
-        <CardContent className="p-6">
-          <h3 className="text-xl font-bold mb-2">Instagram Followers</h3>
-          <p className="mb-2">1000 followers - Rs. 500</p>
-          <Button variant="default">Order Now</Button>
-        </CardContent>
-      </Card>
-      <Card className="rounded-2xl shadow-md">
-        <CardContent className="p-6">
-          <h3 className="text-xl font-bold mb-2">TikTok Likes</h3>
-          <p className="mb-2">1000 likes - Rs. 400</p>
-          <Button variant="default">Order Now</Button>
-        </CardContent>
-      </Card>
-      <Card className="rounded-2xl shadow-md">
-        <CardContent className="p-6">
-          <h3 className="text-xl font-bold mb-2">YouTube Views</h3>
-          <p className="mb-2">1000 views - Rs. 700</p>
-          <Button variant="default">Order Now</Button>
-        </CardContent>
-      </Card>
-    </div>
-  </motion.section>
+.section {
+  padding: 2rem;
+  text-align: center;
+}
 
-  {/* Order Section */}
-  <motion.section className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
-    <h2 className="text-2xl font-semibold text-center mb-4">Place an Order</h2>
-    <div className="max-w-md mx-auto">
-      <Input className="mb-2" placeholder="Enter your username or profile link" />
-      <Input className="mb-2" placeholder="Select service (e.g., Instagram Followers)" />
-      <Input className="mb-2" placeholder="Quantity (e.g., 1000)" />
-      <Input className="mb-4" placeholder="Your eSewa ID or WhatsApp Number" />
-      <Button className="w-full bg-green-500 hover:bg-green-600">Pay with eSewa</Button>
-    </div>
-  </motion.section>
+.platform {
+  margin-bottom: 3rem;
+}
 
-  {/* Testimonials */}
-  <motion.section className="mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
-    <h2 className="text-2xl font-semibold text-center mb-4">Client Testimonials</h2>
-    <div className="flex justify-center">
-      <iframe
-        src="https://www.instagram.com/p/EXAMPLE/embed"
-        width="400"
-        height="480"
-        frameBorder="0"
-        allowTransparency={true}
-        allow="encrypted-media"
-      ></iframe>
-    </div>
-  </motion.section>
+h2 {
+  color: #e50914;
+  margin-bottom: 1rem;
+}
 
-  {/* Login Section */}
-  <motion.section className="mb-12 max-w-sm mx-auto" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
-    <h2 className="text-2xl font-semibold text-center mb-4">Login</h2>
-    <Input className="mb-2" placeholder="Email" type="email" />
-    <Input className="mb-4" placeholder="Password" type="password" />
-    <Button className="w-full">Login</Button>
-  </motion.section>
+.price-card {
+  background-color: #111;
+  border: 1px solid #444;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 300px;
+  border-radius: 12px;
+}
 
-  {/* Support & Contact */}
-  <motion.section className="text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}>
-    <p className="mb-4">Need help? DM us on WhatsApp for 24/7 support!</p>
-    <a href="https://wa.me/9779812345678" target="_blank" rel="noopener noreferrer">
-      <Button variant="outline" className="flex items-center gap-2">
-        <Send size={18} /> Chat on WhatsApp
-      </Button>
-    </a>
-  </motion.section>
+.price-card h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.price-card p {
+  color: #aaa;
+}
+
+.contact {
+  background-color: #111;
+  padding: 2rem;
+  text-align: center;
+}
+
+.contact a {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #e50914;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.social-icons {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+.social-icons i {
+  margin: 0 1rem;
+  color: #e50914;
+}
+
+  </style>
+</head><body>
+  <header>
+    <h1>CloutNepal</h1>
+    <p class="tagline">Level Up Your Social Game</p>
+  </header>  <div class="section">
+    <div class="platform">
+      <h2>Instagram Services</h2>
+      <div class="price-card">
+        <h3>1K Followers – Rs. 300</h3>
+        <p>High quality, non-drop followers</p>
+      </div>
+      <div class="price-card">
+        <h3>1K Likes – Rs. 250</h3>
+        <p>Real engagement boost</p>
+      </div>
+    </div><div class="platform">
+  <h2>Facebook Services</h2>
+  <div class="price-card">
+    <h3>1K Page Likes – Rs. 400</h3>
+    <p>Grow your audience fast</p>
+  </div>
+  <div class="price-card">
+    <h3>1K Post Likes – Rs. 300</h3>
+    <p>Post reach booster</p>
+  </div>
 </div>
 
-); }
+<div class="platform">
+  <h2>TikTok Services</h2>
+  <div class="price-card">
+    <h3>1K Followers – Rs. 350</h3>
+    <p>Instant delivery, high quality</p>
+  </div>
+  <div class="price-card">
+    <h3>1K Likes – Rs. 250</h3>
+    <p>Get viral-worthy videos</p>
+  </div>
+</div>
+
+<div class="platform">
+  <h2>YouTube Services</h2>
+  <div class="price-card">
+    <h3>1K Subscribers – Rs. 1000</h3>
+    <p>Monetization ready subs</p>
+  </div>
+  <div class="price-card">
+    <h3>1K Views – Rs. 300</h3>
+    <p>High-retention views</p>
+  </div>
+</div>
+
+  </div>  <div class="contact">
+    <h2>Place Your Order</h2>
+    <p>DM us for custom packages and instant delivery</p>
+    <a href="https://wa.me/9779841290432">DM on WhatsApp</a><div class="social-icons">
+  <i class="ph ph-instagram-logo"></i>
+  <i class="ph ph-facebook-logo"></i>
+  <i class="ph ph-tiktok-logo"></i>
+  <i class="ph ph-youtube-logo"></i>
+</div>
+
+  </div>
+</body></html>
